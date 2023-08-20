@@ -11,7 +11,7 @@
     <a id="google_link" >googleへのリンク</a>
     <div id="app"> <!-- 仮想DOM-->>
         {{ message }}
-        <a v-bind:href="google">googleへのリンク</a>
+        <a v-bind:href="google">googleへのリンク</a><!-- v-bindは省略できて a :hrefでも問題なし-->
     </div>
     <script>
         var app = new Vue({
