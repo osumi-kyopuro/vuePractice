@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+    <!-- リアルDOM -->
+    <a id="google_link" >googleへのリンク</a>
+    <div id="app"> <!-- 仮想DOM-->>
+        {{ message }}
+        <a v-bind:href="google">googleへのリンク</a>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app', // 
+            data(){ // 初期設定
+                return {
+                    message: 'Hello Vue!', //キー:値
+                    google:'https://google.com'
+                }
+            }
+        });
+        
+        
+        const googleLink = document.getElementById('google_link');
+        googleLink.href = 'https://google.com';
+    </script>
+      
+    
+</body>
+</html>
