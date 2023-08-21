@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+    <button id="clickEvent" onclick="btnClicked()">クリックしてね</button>
+    <form>
+        <button id="prevent" type="submit">送信</button>
+    </form>
+    
+    <div id="app">
+        <button v-on:click="btnClicked">クリックしてね</button><!-- v-onは@と記載する場合もある -->
+        <button v-on:click="btnClickedEvent">Eventクリックしてね</button>
+        <button v-on:click="btnClickedArgs(1)">引数クリックしてね</button>
+        <button v-on:click="btnClickedArgsEvent(1,$event)">引数Eventクリックしてね</button>
+    </div>
+    <script>
+            let app = new Vue({
+                el:'#app',
+                data(){
+                    return{
+                
+                    }
+                },
+                methods:{
+                    btnClicked(){
+                        console.log('Vueクリックされた');
+                    },
+                    btnClickedEvent(e){
+                        console.log(e);
+                    },
+                    btnClickedArgs(int){
+                        console.log(int);
+                    },
+                    btnClickedArgsEvent(int,e){
+                        console.log(int,e);
+                    },
+                }
+            });
+
+        function btnClicked(){
+            console.log('JSクリックされた');
+        }
+
+        const clickEvent = document.getElementById('clickEvent');
+        clickEvent.addEventListener('click',(e)=>{
+            console.log(e);
+        });
+
+        const prevent=document.getElementById('prevent');
+        prevent.addEventListener('click',(e)=>{
+            e.preventDefault();1//元々の動作を防ぐ、処理を再読み込みを防ぐ
+            console.log(e);
+        })
+
+    </script>
+</body>
+</html>

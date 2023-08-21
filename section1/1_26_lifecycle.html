@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+    <script>
+            let app = new Vue({
+                el:'#app',
+                data(){
+                    return{
+                        
+                    }
+                },
+                created(){//非同期処理を行う際
+                    console.log('created');
+                    console.log(this.$el);
+                },
+                mounted(){//それ以外
+                    console.log('mounted');
+                    console.log(this.$el);
+                }
+            });
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
