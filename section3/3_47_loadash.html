@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    </div><!--仮想DOM-->
+    <script>
+        // window.addEventListener('resize',()=>{
+        //     console.log('リサイズしたよ')
+        // })
+        window.addEventListener('resize',_.debounce(()=>{
+            console.log('debounceでリサイズ')
+        },3000))
+
+        window.addEventListener('resize',_.throttle(()=>{
+            console.log('throttleでリサイズ')
+        },3000))
+    </script>
+</body>
+</html>
